@@ -105,3 +105,4 @@ dist
 
 # NPM Package files
 package-lock.json
+/.vs/GRE-JavascriptClient/config/applicationhost.config

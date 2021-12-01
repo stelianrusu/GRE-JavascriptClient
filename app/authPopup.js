@@ -112,4 +112,22 @@ function readMail() {
         });
 }
 
+function readPortfolio() {
+    getTokenPopup(readPortfolioRequest)
+        .then(response => {
+            callPortfolioAPI(portfolioApiConfig.GetPortfolios, response.accessToken, updateUI);
+        }).catch(error => {
+            console.error(error);
+        });
+}
+
+function readPortfolioBalance() {
+    getTokenPopup(readPortfolioBalanceRequest)
+        .then(response => {
+            callPortfolioAPI(portfolioApiConfig.GetPortfolioBalance, response.accessToken, updateUI);
+        }).catch(error => {
+            console.error(error);
+        });
+}
+
 selectAccount();
