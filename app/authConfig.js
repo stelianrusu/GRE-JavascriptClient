@@ -7,7 +7,7 @@ const msalConfig = {
     auth: {
         clientId: "c9418383-0729-40be-bae9-e62216e32e28",
         authority: "https://login.microsoftonline.com/e8a64aeb-fc47-4028-996f-bd40b2c43782",
-        redirectUri: "http://localhost:3000",
+        redirectUri: "https://gre-javascriptclient.azurewebsites.net/",
     },
     cache: {
         cacheLocation: "sessionStorage", // This configures where your cache will be stored
