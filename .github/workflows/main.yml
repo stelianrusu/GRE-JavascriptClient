@@ -4,9 +4,7 @@
 # documentation.
 
 on:
-  push:
-    branches:
-      - main
+   [push,workflow_dispatch]
 
 env:
   AZURE_WEBAPP_NAME: GRE-JavascriptClient   # set this to your application's name
