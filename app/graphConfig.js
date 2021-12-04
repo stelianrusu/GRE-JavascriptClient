@@ -6,5 +6,6 @@ const graphConfig = {
 
 const portfolioApiConfig = {
     GetPortfolios: "https://gredh-apim-01.azure-api.net/GRE-PortfolioAPI/GetPortfolios",
-    GetPortfolioBalance: "https://gredh-apim-01.azure-api.net/GRE-PortfolioAPI/GetPortfolioBalance"
+    GetPortfolioBalance: "https://gredh-apim-01.azure-api.net/GRE-PortfolioAPI/GetPortfolioBalance",
+    GetAdminInfo: "https://gredh-apim-01.azure-api.net/GRE-PortfolioAPI/GetAdminInfo"
 };

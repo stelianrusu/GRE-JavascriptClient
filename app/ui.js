@@ -40,7 +40,15 @@ function updateUI(data, endpoint) {
 
         portfolioDiv.appendChild(title);
         portfolioDiv.appendChild(email);
-        
+
+    } else if (endpoint === portfolioApiConfig.GetAdminInfo) {
+        const portfolioDiv = document.getElementById("portfolio-admin");
+        portfolioDiv.innerHTML = ''
+        const title = document.createElement('p');
+        title.innerHTML = "<strong>Message: </strong>" + data.message;
+
+        portfolioDiv.appendChild(title);
+
     }
 
 }

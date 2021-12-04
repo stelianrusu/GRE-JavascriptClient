@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\app"
   ],
-  "SelectedNode": "\\C:\\Work\\Azure\\GRE-JavascriptClient",
+  "SelectedNode": "\\app\\authConfig.js",
   "PreviewInSolutionExplorer": false
 }

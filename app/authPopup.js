@@ -78,7 +78,7 @@ function getTokenPopup(request) {
     
     return myMSALObj.acquireTokenSilent(request)
         .catch(error => {
-            console.warn("silent token acquisition fails. acquiring token using popup");
+            console.error(error);
             if (error instanceof msal.InteractionRequiredAuthError) {
                 // fallback to interaction when silent call fails
                 return myMSALObj.acquireTokenPopup(request)
@@ -86,30 +86,12 @@ function getTokenPopup(request) {
                         console.log(tokenResponse);
                         return tokenResponse;
                     }).catch(error => {
-                        console.error(error);
+                        throw error;
                     });
             } else {
                 console.warn(error);   
             }
     });
-}
-
-function seeProfile() {
-    getTokenPopup(loginRequest)
-        .then(response => {
-            callMSGraph(graphConfig.graphMeEndpoint, response.accessToken, updateUI);
-        }).catch(error => {
-            console.error(error);
-        });
-}
-
-function readMail() {
-    getTokenPopup(tokenRequest)
-        .then(response => {
-            callMSGraph(graphConfig.graphMailEndpoint, response.accessToken, updateUI);
-        }).catch(error => {
-            console.error(error);
-        });
 }
 
 function readPortfolio() {
@@ -129,5 +111,36 @@ function readPortfolioBalance() {
             console.error(error);
         });
 }
+
+function readNonExistingScope() {
+    getTokenPopup(readNonExistingRequest)
+        .then(response => {
+            callPortfolioAPI(portfolioApiConfig.GetPortfolioBalance, response.accessToken, updateUI);
+        }).catch(error => {
+            alert(error);
+        });
+}
+
+function readAdminScope() {
+    getTokenPopup(readAdministratorRequest)
+        .then(response => {
+            callPortfolioAPI(portfolioApiConfig.GetAdminInfo, response.accessToken, updateUI);
+        }).catch(error => {
+            alert(error);
+        });
+
+}
+
+
+function callNonConsentedScope() {
+    getTokenPopup(readPortfolioRequest)
+        .then(response => {
+            callPortfolioAPI(portfolioApiConfig.GetAdminInfo, response.accessToken, updateUI);
+        }).catch(error => {
+            console.error(error);
+        });
+
+}
+
 
 selectAccount();
